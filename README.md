@@ -23,9 +23,29 @@ import pyLifetimeSpectraGenerator as plg
 * import your data (or generate it synthetically) and apply the fit using pyTailFit ...
 
 ```python
-__,spectrum  = np.loadtxt('.../test-data.dat', delimiter='\t', skiprows=5, unpack=True, dtype='float')
+# (1) generate the IRF function (or import numerical data) ...
+__,irf_data = lsg.generateGaussianIRF(numberOfBins   = 10000,
+                                      binWidth_in_ps = 5.,
+                                      t0_in_ps       = 4100.,
+                                      fwhm_in_ps     = 200.)
         
-time,data,fit=ptf.tail_fit(spectrum=spectrum[:],no_of_expected_decays=1,no_chn_right_of_peak=400,bin_width_in_ps=8.)
+# (2) generate a distribution of characteristic lifetimes following a Gaussian function ...
+tau_grid,I_pdf = lsg.generateGaussianDistributionOfLifetimes(number_of_tau_grid_points = 10000,
+                                                             tau_grid_range_in_ps      = [10.,5000.],
+                                                             loc_tau_in_ps             = [170.,380.,1400.,1500.], # mean of Gaussians
+                                                             scale_tau_in_ps           = [5.,5.,50.,50.], # standard deviation of Gaussians
+                                                             I                         = [0.25,0.15,0.015,0.585]) # relative contributions
+# (3) generate the resulting lifetime spectrum ...
+__,spectrum = lsg.generateLTSpectrum(numberOfBins     = 10000,
+                                     binWidth_in_ps   = 5.,
+                                     integralCounts   = 5E6,
+                                     constBkgrdCounts = 5,
+                                     tau_in_ps        = tau_grid,
+                                     I                = I_pdf,
+                                     irf_data         = irf_data,                   
+                                     noise            = True,                 
+                                     noise_level      = 1.,                   
+                                     convoluteWithIRF = True)
 ```
 
 # How to cite this Software?
