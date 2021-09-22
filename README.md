@@ -52,12 +52,12 @@ __,spectrum = lsg.generateLTSpectrum(numberOfBins     = 10000,
 
 * <b>You should at least cite the applied version of this program in your study.</b><br>
 
-You can cite all versions by using the <b>DOI 10.5281/zenodo.552001</b>. This DOI represents all versions, and will always resolve to the latest one.<br>
+You can cite all versions by using the <b>DOI 10.5281/zenodo.5520010</b>. This DOI represents all versions, and will always resolve to the latest one.<br>
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.552001.svg)](https://doi.org/10.5281/zenodo.408955036)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.408982552.svg)](https://doi.org/10.5281/zenodo.5520676)
 
 ## ``v1.x``
-<b>pyLifetimeSpectraGenerator v1.0</b><br>[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.552001.svg)](https://doi.org/10.5281/zenodo.408955036)<br>
+<b>pyTailFit v1.0</b><br>[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.408982552.svg)](https://doi.org/10.5281/zenodo.5520676)<br>
  
  # License of pyLifetimeSpectraGenerator (GNU General Public License) 
  Copyright (c) 2021 Danny Petschke (danny.petschke@uni-wuerzburg.de) All rights reserved.<br>
